@@ -1,33 +1,63 @@
 <template>
-    <div class="home text-center">
-        <h1 class="text-white text-uppercase mt-3 gradient-hover" 
-            style="font-size: 60px">
-            <span>nhoem</span><br>
-            <span>senkropum</span>
-        </h1>
-        <p class="text-white-50">Lorem ipsum dolor, sit amet consectetur <br>adipisicing elit. Ea dicta doloribus, eum beatae unde <br>facilis eaque architecto, quam ex explicabo suscipit vero? <br>Facere dolor placeat itaque eaque, fugiat iste amet?</p>
-        <div class="btnGroup d-flex gap-2 justify-content-center ">
-            <button class="px-2 fs-3 btn  btn-outline-light">Contact me</button>
-            <button class="px-2 fs-3 btn  btn-outline-light">Resume</button>
+    <section>
+        <div class="container text-light py-5">
+            <div class="text w-100 text-end fs-6">
+                <h3>
+                    DECEMBER / 2025 <br>
+                    BRIGITTE SCHWARTZ
+                </h3>
+            </div>
+            <div class="text text-uppercase w-100 text-start mt-3">
+                <h2>
+                    <span class="firstName">
+                        nhoem
+                    </span>
+                    <span class="lastName">
+                        senkropum
+                    </span>
+                </h2>
+            </div>
+            <div class="text d-flex justify-content-between">
+                <div class="desc text-start">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium et fugit quas voluptatibus exercitationem asperiores autem. Dolorem mollitia eligendi sint dicta ullam iste, quisquam quos deleniti. Ea eos magni quaerat?</div>
+                <div class="desc text-end">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ullam nostrum quisquam cum quis sed pariatur iste. Aperiam nisi pariatur id nulla consequatur nostrum, repellendus odio impedit, ea qui possimus?</div>
+            </div>
         </div>
-    </div>
+    </section>
+    <section>
+        <div class="container d-flex gap-2">
+            <div v-for="btn in myBtns" class="allBtns">
+                <BaseBtn :title="btn"/>
+            </div>
+        </div>
+    </section>
 </template>
 <style scoped>
-    .gradient-hover {
-        background-size: 200% 200%;
-    }
-
-    .gradient-hover:hover {
-        animation: gradientMove 1s ease infinite;
-    }
-
-    @keyframes gradientMove {
-        0% { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
-    }
-
-
-
+.firstName{
+    line-height: 1;
+    margin: 0;
+    font-size: 6rem;
+}
+.lastName{
+    line-height: 1;
+    margin: 0;
+    font-size: 22rem;
+}
+.desc{
+    font-size: 1.5rem;
+    width: 35%;
+}
 </style>
 
-<script script></script>
+<script setup>
+import BaseBtn from '@/component/buttons/BaseBtn.vue';
+import { reactive } from 'vue';
+
+
+
+let myBtns =  reactive([
+    'Introduction',
+    'Experience',
+    'Skills',
+    'Education'
+])
+</script>
